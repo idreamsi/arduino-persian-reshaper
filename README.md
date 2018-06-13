@@ -36,5 +36,5 @@ char NUM[] = "0123456789";              //For correct representation, the number
 PutCharPE(strreverse(NUM),ALINE_CENTER(NUM),30,1,BLACK);
 ```
 
-## Copyright
+## Contact
 Copyright (C) 2018 [Sadraldin Rastegar](mailto:s_qwerty13@live.com) and [Ramin Sangesari](mailto:r.sangsari@gmail.com).
