@@ -19,9 +19,6 @@ Change the following lines according to the library you are using:
 //This section should be modified according to your display type and library
 #define setpixel(x, y, color)           display.writePixel(x, y, color)
 #define LCDWidth                        display.width()
-#define ALINE_CENTER(t)	                (LCDWidth - ((LCDWidth - (LCDWidth - CalcTextWidth(t))) / 2)) - 2
-#define ALINE_RIGHT                     LCDWidth
-#define ALINE_LEFT(t)                   LCDWidth - CalcTextWidth(t)
 
 //This example is for a 128x64 (SSD1306 chip driver) size display using Hardware SPI
 #define OLED_DC                          4
