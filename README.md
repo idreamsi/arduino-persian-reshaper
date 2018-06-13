@@ -11,7 +11,7 @@ Persian/Arabic script is very special with two essential features:
 The code attempts to resolve the problem of displaying letters and numbers in Persian/Arabic with a [8x8 font](https://raw.githubusercontent.com/idreamsi/arduino-persian-reshaper/master/8x8_FONT.bmp).
 
 ## Pre-requisites
-First you need to install the [Adafruit GFX library](https://github.com/adafruit/Adafruit-GFX-Library) (for drawing shapes, lines, ...) Of course this is optional, then according to the type of display, install the library you need. Here I used the 128x64 display with SSD1306 chip driver so I installed the [Adafruit SSD1306](https://github.com/adafruit/Adafruit_SSD1306) library.
+First you need to install the [Adafruit GFX library](https://github.com/adafruit/Adafruit-GFX-Library) (for drawing shapes, lines, ...) of course this is optional, then according to the type of display, install the library you need. Here I used the 128x64 display with SSD1306 chip driver so I installed the [Adafruit SSD1306](https://github.com/adafruit/Adafruit_SSD1306) library.
 
 ## Usage
 Change the following lines according to the library you are using:
