@@ -1,5 +1,5 @@
 ## Arduino Persian Reshaper
-Reconstruct Persian/Arabic letters to be used in Arduino IDE and OLED/LCD display.
+Reconstruct Persian/Arabic letters to be used in Arduino IDE and OLED/LCD display. This script is applicable to all Arduino family boards such as ESP8266/ESP32, Particle Photon, ....
 All displays that can be set to ```pixel(x, y, color)``` can be used.
 
 ## Description
