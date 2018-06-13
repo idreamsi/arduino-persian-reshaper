@@ -9,7 +9,7 @@ Persian/Arabic script is very special with two essential features:
 2. The characters change shape according to their surrounding characters.
 
 ## Prerequisites
-First you need to install the [Adafruit GFX library](https://github.com/adafruit/Adafruit-GFX-Library)(for drawing shapes, lines, ...) then according to the type of display, install the library you need. Here I used the 128x64 display with SSD1306 chip driver so I installed the [Adafruit SSD1306](https://github.com/adafruit/Adafruit_SSD1306) library.
+First you need to install the [Adafruit GFX library](https://github.com/adafruit/Adafruit-GFX-Library) (for drawing shapes, lines, ...) then according to the type of display, install the library you need. Here I used the 128x64 display with SSD1306 chip driver so I installed the [Adafruit SSD1306](https://github.com/adafruit/Adafruit_SSD1306) library.
 
 ## Usage
 Change the following lines according to the library you are using:
@@ -27,7 +27,7 @@ Change the following lines according to the library you are using:
 #define OLED_RESET                       6
 Adafruit_SSD1306 display(OLED_DC, OLED_RESET, OLED_CS);
 ```
-
+Finally, run the following code:
 ```
 char txt[] = "فارسی نویسی در آردوینو";
 PutCharPE(txt,ALINE_CENTER(txt),8,1,BLACK);
