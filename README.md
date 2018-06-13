@@ -1,12 +1,14 @@
 ## Arduino Persian Reshaper
 Reconstruct Persian/Arabic letters to be used in Arduino IDE and OLED/LCD display. This script is applicable to all Arduino family boards such as ESP8266/ESP32, Particle Photon, ....
 
-All displays and library that can be set to ```pixel(x, y, color)``` can be used.
+All displays and libraries that can be set to ```pixel(x, y, color)``` can be used.
 
 ## Description
 Persian/Arabic script is very special with two essential features:
 1. It is written from right to left.
 2. The characters change shape according to their surrounding characters.
+
+The code attempts to resolve the problem of displaying letters and numbers in Persian/Arabic.
 
 ## Prerequisites
 First you need to install the [Adafruit GFX library](https://github.com/adafruit/Adafruit-GFX-Library) (for drawing shapes, lines, ...) then according to the type of display, install the library you need. Here I used the 128x64 display with SSD1306 chip driver so I installed the [Adafruit SSD1306](https://github.com/adafruit/Adafruit_SSD1306) library.
