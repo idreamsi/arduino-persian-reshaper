@@ -1,5 +1,6 @@
 ## Arduino Persian Reshaper
 Reconstruct Persian/Arabic letters to be used in Arduino IDE and OLED/LCD display.
+All displays that can be set to ```pixel(x, y, color)``` can be used.
 
 ## Description
 Persian/Arabic script is very special with two essential features:
