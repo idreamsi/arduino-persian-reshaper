@@ -12,6 +12,28 @@ Persian/Arabic script is very special with two essential features:
 First you need to install the [Adafruit GFX library](https://github.com/adafruit/Adafruit-GFX-Library) Then according to the type of display, install the library you need. Here I used the 128x64 display with SSD1306 chip driver So I installed the [Adafruit SSD1306] (https://github.com/adafruit/Adafruit_SSD1306) library.
 
 ## Usage
+Change the following lines according to the library you are using:
+```
+//This section should be modified according to your display type and library
+#define setpixel(x, y, color)           display.writePixel(x, y, color)
+#define LCDWidth                        display.width()
+#define ALINE_CENTER(t)	                (LCDWidth - ((LCDWidth - (LCDWidth - CalcTextWidth(t))) / 2)) - 2
+#define ALINE_RIGHT                     LCDWidth
+#define ALINE_LEFT(t)                   LCDWidth - CalcTextWidth(t)
+
+
+//This example is for a 128x64 (SSD1306 chip driver) size display using Hardware SPI
+#define OLED_DC     4
+#define OLED_CS     12
+#define OLED_RESET  6
+Adafruit_SSD1306 display(OLED_DC, OLED_RESET, OLED_CS);
+
+#if (SSD1306_LCDHEIGHT != 64)
+  #error("Height incorrect, please fix Adafruit_SSD1306.h!");
+#endif
+//
+```
+
 ```
 char txt[] = "فارسی نویسی در آردوینو";
 PutCharPE(txt,ALINE_CENTER(txt),8,1,BLACK);
