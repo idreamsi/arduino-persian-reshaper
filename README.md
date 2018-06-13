@@ -8,7 +8,7 @@ Persian/Arabic script is very special with two essential features:
 1. It is written from right to left.
 2. The characters change shape according to their surrounding characters.
 
-The code attempts to resolve the problem of displaying letters and numbers in Persian/Arabic with a 8x8 font.
+The code attempts to resolve the problem of displaying letters and numbers in Persian/Arabic with a [8x8 font(https://raw.githubusercontent.com/idreamsi/arduino-persian-reshaper/master/8x8_FONT.bmp).
 
 ## Prerequisites
 First you need to install the [Adafruit GFX library](https://github.com/adafruit/Adafruit-GFX-Library) (for drawing shapes, lines, ...) then according to the type of display, install the library you need. Here I used the 128x64 display with SSD1306 chip driver so I installed the [Adafruit SSD1306](https://github.com/adafruit/Adafruit_SSD1306) library.
