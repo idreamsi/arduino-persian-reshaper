@@ -6,5 +6,8 @@ Persian/Arabic script is very special with two essential features:
 1. It is written from right to left.
 2. The characters change shape according to their surrounding characters.
 
+## Installation
+First you need to install the [Adafruit GFX library](https://github.com/adafruit/Adafruit-GFX-Library) Then according to the type of display, install the library you need. Here I used the 128x64 display with SSD1306 chip driver So I installed the [Adafruit SSD1306] (https://github.com/adafruit/Adafruit_SSD1306) library.
+
 ## Contact
-Copyright (C) 2018 [Sadraldin Rastegar](http://qwerty13.ir) and [Ramin Sangesari](http://www.idreams.ir).
+Copyright (C) 2018 [Sadraldin Rastegar](s_qwerty13@live.com) and [Ramin Sangesari](r.sangsari@gmail.com).
