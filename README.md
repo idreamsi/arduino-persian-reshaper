@@ -23,10 +23,18 @@ Change the following lines according to the library you are using:
 #define LCDWidth                        display.width()
 
 //This example is for a 128x64 (SSD1306 chip driver) size display using Hardware SPI
+//
 #define OLED_DC                          4
 #define OLED_CS                         12
 #define OLED_RESET                       6
 Adafruit_SSD1306 display(OLED_DC, OLED_RESET, OLED_CS);
+
+//If you use i2c connection, uncomment this part.
+/*
+#define OLED_RESET 4
+Adafruit_SSD1306 display(OLED_RESET);
+*/
+
 ```
 Finally, run the following code:
 ```
