@@ -36,7 +36,7 @@ Adafruit_SSD1306 display(OLED_RESET);
 */
 
 ```
-Finally, run the following code:
+Finally, change the following lines and then upload on the Arduino board:
 ```
 char txt[] = "فارسی نویسی در آردوینو";
 PutCharPE(txt,ALINE_CENTER(txt),8,1,BLACK);
