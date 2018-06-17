@@ -16,7 +16,7 @@ The code attempts to resolve the problem of displaying letters and numbers in Pe
 First you need to install the [Adafruit GFX library](https://github.com/adafruit/Adafruit-GFX-Library) (for drawing shapes, lines, ...) of course this is optional, then according to the type of display, install the library you need. Here I used the [128x64 display with SSD1306](https://www.adafruit.com/product/326) chip driver so I installed the [Adafruit SSD1306](https://github.com/adafruit/Adafruit_SSD1306) library.
 
 ## Usage
-Change the following lines according to the library you are using:
+Download the Arduino sketch, change the following lines according to the library you are using:
 ```
 //This section should be modified according to your display type and library
 #define setpixel(x, y, color)           display.writePixel(x, y, color)
