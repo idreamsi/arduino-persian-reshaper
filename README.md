@@ -12,21 +12,20 @@ The code attempts to resolve the problem of displaying letters and numbers in Pe
 
 ![Persian Letters on Arduboy](https://raw.githubusercontent.com/idreamsi/arduino-persian-reshaper/master/arduboy.jpg)
 
-## Pre-requisites
+## Prerequisites
 First you need to install the [Adafruit GFX library](https://github.com/adafruit/Adafruit-GFX-Library) (for drawing shapes, lines, ...) of course this is optional, then according to the type of display, install the library you need. Here I used the [128x64 display with SSD1306](https://www.adafruit.com/product/326) chip driver so I installed the [Adafruit SSD1306](https://github.com/adafruit/Adafruit_SSD1306) library.
 
-## Usage
-Download the Arduino sketch, change the following lines according to the library you are using:
+## Download & Usage
+Download/Clone repository, change the following lines according to the library you are using:
 ```
 //This section should be modified according to your display type and library
 #define setpixel(x, y, color)           display.writePixel(x, y, color)
 #define LCDWidth                        display.width()
 
-//This example is for a 128x64 (SSD1306 chip driver) size display using Hardware SPI
-//
-#define OLED_DC                          4
+//If you use SPI display, change the following lines according to your display type (I used the Arduboy)
+#define OLED_DC                         4
 #define OLED_CS                         12
-#define OLED_RESET                       6
+#define OLED_RESET                      6
 Adafruit_SSD1306 display(OLED_DC, OLED_RESET, OLED_CS);
 
 //If you use i2c display, uncomment this part.
