@@ -22,7 +22,7 @@ Adafruit_SSD1306 display(OLED_DC, OLED_RESET, OLED_CS);
 
 //If you use i2c display, uncomment this part.
 /*
-#define OLED_RESET 						4
+#define OLED_RESET                      4
 Adafruit_SSD1306 display(OLED_RESET);
 */
 
