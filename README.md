@@ -10,6 +10,7 @@ Persian/Arabic script is very special with two essential features:
 
 The code attempts to resolve the problem of displaying letters and numbers in Persian/Arabic with a [8x8 font](https://raw.githubusercontent.com/idreamsi/arduino-persian-reshaper/master/8x8_FONT.bmp).
 
+## Screenshot
 ![Persian Letters on Arduboy](https://raw.githubusercontent.com/idreamsi/arduino-persian-reshaper/master/arduboy.jpg)
 
 ## Prerequisites
