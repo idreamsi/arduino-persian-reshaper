@@ -291,22 +291,22 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
     if(qloghat==32 || qloghat=='\0' || qloghat==199 || qloghat==194 || qloghat==207 || qloghat==208 || qloghat==209 || qloghat==210 || qloghat==184 || qloghat==168 || qloghat==191 || qloghat==40 || qloghat==41 || qloghat==46 || qloghat==33 || qloghat==44 || qloghat==58 || qloghat==248)
     {
       if(bloghat==32 || bloghat=='\0' || bloghat==191 || bloghat==40 || bloghat==41 || bloghat==46 || bloghat==33 || bloghat==44 || bloghat==58 || bloghat==248){
-        haalat = 0;  //دو سمت غیر چسبان
+        haalat = 0;  //Isolated
       }
       else
       {
-        haalat = 1;  //آخر چسبان
+        haalat = 1;  //Final
       }
     }
     else
     {
       if(bloghat==32 || bloghat=='\0' || bloghat==191 || bloghat==40 || bloghat==41 || bloghat==46 || bloghat==33 || bloghat==44 || bloghat==58 || bloghat==248)
       {
-        haalat = 2;  //اول چسبان آخر غیر چسبان
+        haalat = 2;  //Initial
       }
       else
       {
-        haalat = 3;  //دو سمت چسبان
+        haalat = 3;  //Medial
       }
     }
   
@@ -844,22 +844,22 @@ int CalcTextWidth (char *Text){
     if(qloghat==32 || qloghat=='\0' || qloghat==199 || qloghat==194 || qloghat==207 || qloghat==208 || qloghat==209 || qloghat==210 || qloghat==184 || qloghat==168 || qloghat==191 || qloghat==40 || qloghat==41 || qloghat==46 || qloghat==33 || qloghat==44 || qloghat==58 || qloghat==248)
     {
       if(bloghat==32 || bloghat=='\0' || bloghat==191 || bloghat==40 || bloghat==41 || bloghat==46 || bloghat==33 || bloghat==44 || bloghat==58 || bloghat==248){
-        haalat = 0;  //دو سمت غیر چسبان
+        haalat = 0;  //Isolated
       }
       else
       {
-        haalat = 1;  //آخر چسبان
+        haalat = 1;  //Final
       }
     }
     else
     {
       if(bloghat==32 || bloghat=='\0' || bloghat==191 || bloghat==40 || bloghat==41 || bloghat==46 || bloghat==33 || bloghat==44 || bloghat==58 || bloghat==248)
       {
-        haalat = 2;  //اول چسبان آخر غیر چسبان
+        haalat = 2;  //Initial
       }
       else
       {
-        haalat = 3;  //دو سمت چسبان
+        haalat = 3;  //Medial
       }
     }
   
