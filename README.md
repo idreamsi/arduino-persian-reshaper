@@ -5,8 +5,8 @@ All displays and libraries that can be set to ```writepixel(x, y, color)``` can 
 
 ## Description
 Persian/Arabic script is very special with two essential features:
-1. It is written from right to left.
-2. The characters change shape according to their surrounding characters.
+- It is written from right to left.
+- The characters change shape according to their surrounding characters.
 
 The code attempts to resolve the problem of displaying letters and numbers in Persian/Arabic with a [8x8 font](https://raw.githubusercontent.com/idreamsi/arduino-persian-reshaper/master/8x8_FONT.bmp).
 
@@ -51,5 +51,5 @@ Copyright (C) 2018 [Sadraldin Rastegar](mailto:s_qwerty13@live.com) and [Ramin S
 ## Donation
 If this project help you reduce time to develop, you can give me a cup of coffee :)
 
-Donate via Bitcoin: 1KjJXPEhhGC7uVAHnTDhSnwYKProWrFruy
-[Donate via IDPay](https://idpay.ir/idreams)
+- Donate via Bitcoin: 1KjJXPEhhGC7uVAHnTDhSnwYKProWrFruy
+- [Donate via IDPay](https://idpay.ir/idreams)
