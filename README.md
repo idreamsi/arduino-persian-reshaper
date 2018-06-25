@@ -47,3 +47,9 @@ PutCharPE(strreverse(NUM),ALINE_CENTER(NUM),30,1,BLACK);
 
 ## Contact
 Copyright (C) 2018 [Sadraldin Rastegar](mailto:s_qwerty13@live.com) and [Ramin Sangesari](mailto:r.sangsari@gmail.com).
+
+## Donation
+If this project help you reduce time to develop, you can give me a cup of coffee :)
+
+Donate via Bitcoin: 1KjJXPEhhGC7uVAHnTDhSnwYKProWrFruy
+[Donate via IDPay](https://idpay.ir/idreams)
