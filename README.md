@@ -45,6 +45,8 @@ char NUM[] = "0123456789";              //For correct representation, the number
 PutCharPE(strreverse(NUM),ALINE_CENTER(NUM),30,1,BLACK);
 ```
 
+[راهنمای استفاده به زبان فارسی](http://www.idreams.ir/%d8%b1%d8%a7%d9%87%d9%86%d9%85%d8%a7%db%8c-%d9%81%d8%a7%d8%b1%d8%b3%db%8c-%d9%86%d9%88%db%8c%d8%b3%db%8c-%d8%b1%d9%88%db%8c-%d9%86%d9%85%d8%a7%db%8c%d8%b4%da%af%d8%b1%d9%87%d8%a7%db%8c-%d9%be%db%8c/)
+
 ## Contact
 Copyright (C) 2018 [Sadraldin Rastegar](mailto:s_qwerty13@live.com) and [Ramin Sangesari](mailto:r.sangsari@gmail.com).
 
