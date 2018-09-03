@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Persian/Arabic letters on WEMOS D1 mini with OLED Shield or usable with any 0.66" display.
+// Persian/Arabic letters on WEMOS D1 mini with OLED Shield (usable with any 0.66" display).
 // Add "SparkFun Micro OLED Breakout" library from "Library Manager" window and then Upload code !
 //
 // Copyright (C) 2018 Sadraldin Rastegar and Ramin Sangesari
