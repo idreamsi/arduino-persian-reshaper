@@ -197,11 +197,43 @@ void drawBitmapPE(int16_t x, int16_t y, const uint8_t bitmap[], int16_t w, int16
   }
 }
 
+bool isFromTheSet1(unsigned char ch)
+{
+    const unsigned char theSet1[18] = {
+        32, '\0', 199, 194, 207, 208, 209, 210,
+        184, 168, 191, 40, 41, 46, 33, 44,
+        58, 248};
+    int i = 0;
+    while (i < 18)
+    {
+        if(ch == theSet1[i])
+            return true;        
+        ++i;
+    }
+    return false;
+}
+
+
+bool isFromTheSet2(unsigned char ch)
+{
+    const unsigned char theSet1[10] = {
+        32, '\0', 191, 40, 41, 46, 33, 44,
+        58, 248
+    };
+    int i = 0;
+    while (i < 10)
+    {
+        if(ch == theSet1[i])
+            return true;        
+        ++i;
+    }
+    return false;
+}
 
 void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
   int cursor_x = x-8;
   int cursor_y = y;
-  int haalat = 0;
+  int stat = 0;
   unsigned char qloghat = ' ';   //Previous word
   unsigned char loghat;
   unsigned char bloghat;     	 //Next word
@@ -288,27 +320,16 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
     }
         
     int isunk = 0; 
-    if(qloghat==32 || qloghat=='\0' || qloghat==199 || qloghat==194 || qloghat==207 || qloghat==208 || qloghat==209 || qloghat==210 || qloghat==184 || qloghat==168 || qloghat==191 || qloghat==40 || qloghat==41 || qloghat==46 || qloghat==33 || qloghat==44 || qloghat==58 || qloghat==248)
-    {
-      if(bloghat==32 || bloghat=='\0' || bloghat==191 || bloghat==40 || bloghat==41 || bloghat==46 || bloghat==33 || bloghat==44 || bloghat==58 || bloghat==248){
-        haalat = 0;  //Isolated
-      }
+    if (isFromTheSet1(qloghat))
+      if (isFromTheSet2(bloghat))
+        stat = 0;  //Isolated
       else
-      {
-        haalat = 1;  //Final
-      }
-    }
+        stat = 1;  //Final
     else
-    {
-      if(bloghat==32 || bloghat=='\0' || bloghat==191 || bloghat==40 || bloghat==41 || bloghat==46 || bloghat==33 || bloghat==44 || bloghat==58 || bloghat==248)
-      {
-        haalat = 2;  //Initial
-      }
+      if (isFromTheSet2(bloghat))
+        stat = 2;  //Initial
       else
-      {
-        haalat = 3;  //Medial
-      }
-    }
+        stat = 3;  //Medial
   
     switch(loghat){
       case 48: //zero
@@ -395,7 +416,7 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
         cursor_x -= 7;
         break;
       case 199:  //ا
-        if(haalat == 0 || haalat == 1)
+        if(stat == 0 || stat == 1)
         {
           drawBitmapPE(cursor_x, cursor_y,  PeChar[1], 8, 8, color);
           cursor_x -= 3;
@@ -407,7 +428,7 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
         }
         break;
       case 200:  //ب
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           drawBitmapPE(cursor_x, cursor_y,  PeChar[3], 8, 8, color);
           cursor_x -= 3;
         }
@@ -418,7 +439,7 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
         }
         break;
       case 222:  //پ
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           drawBitmapPE(cursor_x, cursor_y,  PeChar[5], 8, 8, color);
           cursor_x -= 3;
         }
@@ -429,7 +450,7 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
         }
         break;
       case 202:  //ت
-        if(haalat == 1 || haalat == 3)
+        if(stat == 1 || stat == 3)
         {
           drawBitmapPE(cursor_x, cursor_y,  PeChar[7], 8, 8, color);
           cursor_x -= 3;
@@ -441,7 +462,7 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
         }
         break;
       case 203:  //ث
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           drawBitmapPE(cursor_x, cursor_y,  PeChar[9], 8, 8, color);
           cursor_x -= 3;
         }
@@ -452,7 +473,7 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
         }
         break;
       case 204:  //ج
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           drawBitmapPE(cursor_x, cursor_y,  PeChar[11], 8, 8, color);
           cursor_x -= 6;
         }
@@ -463,7 +484,7 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
         }
         break;
       case 141:  //چ
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           drawBitmapPE(cursor_x, cursor_y,  PeChar[13], 8, 8, color);
           cursor_x -= 6;
         }
@@ -474,7 +495,7 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
         }
         break;
       case 205:  //ح
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           drawBitmapPE(cursor_x, cursor_y,  PeChar[15], 8, 8, color);
           cursor_x -= 6;
         }
@@ -485,7 +506,7 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
         }
         break;
       case 206:  //خ
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           drawBitmapPE(cursor_x, cursor_y,  PeChar[17], 8, 8, color);
           cursor_x -= 6;
         }
@@ -516,7 +537,7 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
         cursor_x -= 5;
         break;
       case 211:  //س
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           drawBitmapPE(cursor_x, cursor_y,  PeChar[24], 8, 8, color);
           cursor_x -= 7;
         }
@@ -527,7 +548,7 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
         }
         break;
       case 212:  //ش
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           drawBitmapPE(cursor_x, cursor_y,  PeChar[26], 8, 8, color);
           cursor_x -= 7;
         }
@@ -538,7 +559,7 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
         }
         break;
       case 213:  //ص
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           drawBitmapPE(cursor_x, cursor_y,  PeChar[28], 8, 8, color);
           cursor_x -= 7;
         }
@@ -549,12 +570,12 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
         }
         break;
       case 214:  //ض
-        if(haalat == 1 || haalat == 3)
+        if(stat == 1 || stat == 3)
         {
           drawBitmapPE(cursor_x, cursor_y,  PeChar[30], 8, 8, color);
           cursor_x -= 7;
         }
-        else if(haalat == 0 || haalat == 2){
+        else if(stat == 0 || stat == 2){
           drawBitmapPE(cursor_x, cursor_y,  PeChar[31], 8, 8, color);
           cursor_x -= 8;
         }
@@ -568,50 +589,50 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
         cursor_x -= 7;
         break;
       case 217:  //ع
-        if(haalat == 0)
+        if(stat == 0)
         {
           drawBitmapPE(cursor_x, cursor_y,  PeChar[37], 8, 8, color);
           cursor_x -= 5;
         }
-        else if(haalat == 1)
+        else if(stat == 1)
         {
           drawBitmapPE(cursor_x, cursor_y,  PeChar[34], 8, 8, color);
           cursor_x -= 4;
         }
-        else if(haalat == 2)
+        else if(stat == 2)
         {
           drawBitmapPE(cursor_x, cursor_y,  PeChar[36], 8, 8, color);
           cursor_x -= 6;
         }
-        else if(haalat == 3)
+        else if(stat == 3)
         {
           drawBitmapPE(cursor_x, cursor_y,  PeChar[35], 8, 8, color);
           cursor_x -= 7;
         }
         break;
       case 218:  //غ
-        if(haalat == 0){
+        if(stat == 0){
           drawBitmapPE(cursor_x, cursor_y,  PeChar[41], 8, 8, color);
           cursor_x -= 5;
         }
-        else if(haalat == 1)
+        else if(stat == 1)
         {
           drawBitmapPE(cursor_x, cursor_y,  PeChar[38], 8, 8, color);
           cursor_x -= 4;
         }
-        else if(haalat == 2)
+        else if(stat == 2)
         {
           drawBitmapPE(cursor_x, cursor_y,  PeChar[40], 8, 8, color);
           cursor_x -= 6;
         }
-        else if(haalat == 3)
+        else if(stat == 3)
         {
           drawBitmapPE(cursor_x, cursor_y,  PeChar[39], 8, 8, color);
           cursor_x -= 7;
         }
         break;
       case 161:  //ف
-        if(haalat == 1 || haalat == 3)
+        if(stat == 1 || stat == 3)
         {
           drawBitmapPE(cursor_x, cursor_y,  PeChar[42], 8, 8, color);
           cursor_x -= 5;
@@ -623,7 +644,7 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
         }
         break;
       case 162:  //ق
-        if(haalat == 1 || haalat == 3)
+        if(stat == 1 || stat == 3)
         {
           drawBitmapPE(cursor_x, cursor_y,  PeChar[44], 8, 8, color);
           cursor_x -= 5;
@@ -635,7 +656,7 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
         }
         break;
       case 201:  //ک
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           drawBitmapPE(cursor_x, cursor_y,  PeChar[46], 8, 8, color);
           cursor_x -= 6;
         }
@@ -646,7 +667,7 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
         }
         break;
       case 144:  //گ
-        if(haalat == 1 || haalat == 3)
+        if(stat == 1 || stat == 3)
         {
           drawBitmapPE(cursor_x, cursor_y,  PeChar[48], 8, 8, color);
           cursor_x -= 6;
@@ -658,7 +679,7 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
         }
         break;
       case 164:  //ل
-        if(haalat == 1 || haalat == 3)
+        if(stat == 1 || stat == 3)
         {
           drawBitmapPE(cursor_x, cursor_y,  PeChar[50], 8, 8, color);
           cursor_x -= 2;
@@ -670,7 +691,7 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
         }
         break;
       case 165:  //م
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           drawBitmapPE(cursor_x, cursor_y,  PeChar[52], 8, 8, color);
           cursor_x -= 6;
         }
@@ -681,7 +702,7 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
         }
         break;
       case 228:  //ن
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           drawBitmapPE(cursor_x, cursor_y,  PeChar[54], 8, 8, color);
           cursor_x -= 3;
         }
@@ -696,17 +717,17 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
         cursor_x -= 5;
         break;
       case 167:  //ه
-        if(haalat == 0)
+        if(stat == 0)
         {
           drawBitmapPE(cursor_x, cursor_y,  PeChar[60], 8, 8, color);
           cursor_x -= 6;
         }
-        else if(haalat == 1)
+        else if(stat == 1)
         {
           drawBitmapPE(cursor_x, cursor_y,  PeChar[57], 8, 8, color);
           cursor_x -= 6;
         }
-        else if(haalat == 2)
+        else if(stat == 2)
         {
           drawBitmapPE(cursor_x, cursor_y,  PeChar[59], 8, 8, color);
           cursor_x -= 5;
@@ -718,12 +739,12 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
         }
         break;
       case 172:  //ی
-        if(haalat == 1 || haalat == 3)
+        if(stat == 1 || stat == 3)
         {
           drawBitmapPE(cursor_x, cursor_y,  PeChar[61], 8, 8, color);
           cursor_x -= 3;
         }
-        else if(haalat == 2)
+        else if(stat == 2)
         {
           drawBitmapPE(cursor_x, cursor_y,  PeChar[62], 8, 8, color);
           cursor_x -= 8;
@@ -754,7 +775,7 @@ int CalcTextWidth (char *Text){
   int dis = 1;
   int cursor_x = -8;
   int cursor_y = 0;
-  int haalat = 0;
+  int stat = 0;
   unsigned char qloghat = ' ';  //Previous word
   unsigned char loghat;
   unsigned char bloghat;	//Next word
@@ -841,27 +862,16 @@ int CalcTextWidth (char *Text){
     }
         
     int isunk = 0; 
-    if(qloghat==32 || qloghat=='\0' || qloghat==199 || qloghat==194 || qloghat==207 || qloghat==208 || qloghat==209 || qloghat==210 || qloghat==184 || qloghat==168 || qloghat==191 || qloghat==40 || qloghat==41 || qloghat==46 || qloghat==33 || qloghat==44 || qloghat==58 || qloghat==248)
-    {
-      if(bloghat==32 || bloghat=='\0' || bloghat==191 || bloghat==40 || bloghat==41 || bloghat==46 || bloghat==33 || bloghat==44 || bloghat==58 || bloghat==248){
-        haalat = 0;  //Isolated
-      }
+    if (isFromTheSet1(qloghat))
+      if (isFromTheSet2(bloghat))
+        stat = 0;  //Isolated
       else
-      {
-        haalat = 1;  //Final
-      }
-    }
+        stat = 1;  //Final
     else
-    {
-      if(bloghat==32 || bloghat=='\0' || bloghat==191 || bloghat==40 || bloghat==41 || bloghat==46 || bloghat==33 || bloghat==44 || bloghat==58 || bloghat==248)
-      {
-        haalat = 2;  //Initial
-      }
+      if (isFromTheSet2(bloghat))
+        stat = 2;  //Initial
       else
-      {
-        haalat = 3;  //Medial
-      }
-    }
+        stat = 3;  //Medial
   
     switch(loghat){
       case 48: //zero
@@ -925,7 +935,7 @@ int CalcTextWidth (char *Text){
         cursor_x -= 7;
         break;
       case 199:  //ا
-        if(haalat == 0 || haalat == 1)
+        if(stat == 0 || stat == 1)
         {
           cursor_x -= 3;
         }
@@ -935,7 +945,7 @@ int CalcTextWidth (char *Text){
         }
         break;
       case 200:  //ب
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           cursor_x -= 3;
         }
         else
@@ -944,7 +954,7 @@ int CalcTextWidth (char *Text){
         }
         break;
       case 222:  //پ
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           cursor_x -= 3;
         }
         else
@@ -953,7 +963,7 @@ int CalcTextWidth (char *Text){
         }
         break;
       case 202:  //ت
-        if(haalat == 1 || haalat == 3)
+        if(stat == 1 || stat == 3)
         {
           cursor_x -= 3;
         }
@@ -963,7 +973,7 @@ int CalcTextWidth (char *Text){
         }
         break;
       case 203:  //ث
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           cursor_x -= 3;
         }
         else
@@ -972,7 +982,7 @@ int CalcTextWidth (char *Text){
         }
         break;
       case 204:  //ج
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           cursor_x -= 6;
         }
         else
@@ -981,7 +991,7 @@ int CalcTextWidth (char *Text){
         }
         break;
       case 141:  //چ
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           cursor_x -= 6;
         }
         else
@@ -990,7 +1000,7 @@ int CalcTextWidth (char *Text){
         }
         break;
       case 205:  //ح
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           cursor_x -= 6;
         }
         else
@@ -999,7 +1009,7 @@ int CalcTextWidth (char *Text){
         }
         break;
       case 206:  //خ
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           cursor_x -= 6;
         }
         else
@@ -1023,7 +1033,7 @@ int CalcTextWidth (char *Text){
         cursor_x -= 5;
         break;
       case 211:  //س
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           cursor_x -= 7;
         }
         else
@@ -1032,7 +1042,7 @@ int CalcTextWidth (char *Text){
         }
         break;
       case 212:  //ش
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           cursor_x -= 7;
         }
         else
@@ -1041,7 +1051,7 @@ int CalcTextWidth (char *Text){
         }
         break;
       case 213:  //ص
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           cursor_x -= 7;
         }
         else
@@ -1050,11 +1060,11 @@ int CalcTextWidth (char *Text){
         }
         break;
       case 214:  //ض
-        if(haalat == 1 || haalat == 3)
+        if(stat == 1 || stat == 3)
         {
           cursor_x -= 7;
         }
-        else if(haalat == 0 || haalat == 2){
+        else if(stat == 0 || stat == 2){
           cursor_x -= 8;
         }
         break;
@@ -1065,42 +1075,42 @@ int CalcTextWidth (char *Text){
         cursor_x -= 7;
         break;
       case 217:  //ع
-        if(haalat == 0)
+        if(stat == 0)
         {
           cursor_x -= 5;
         }
-        else if(haalat == 1)
+        else if(stat == 1)
         {
           cursor_x -= 4;
         }
-        else if(haalat == 2)
+        else if(stat == 2)
         {
           cursor_x -= 6;
         }
-        else if(haalat == 3)
+        else if(stat == 3)
         {
           cursor_x -= 7;
         }
         break;
       case 218:  //غ
-        if(haalat == 0){
+        if(stat == 0){
           cursor_x -= 5;
         }
-        else if(haalat == 1)
+        else if(stat == 1)
         {
           cursor_x -= 4;
         }
-        else if(haalat == 2)
+        else if(stat == 2)
         {
           cursor_x -= 6;
         }
-        else if(haalat == 3)
+        else if(stat == 3)
         {
           cursor_x -= 7;
         }
         break;
       case 161:  //ف
-        if(haalat == 1 || haalat == 3)
+        if(stat == 1 || stat == 3)
         {
           cursor_x -= 5;
         }
@@ -1110,7 +1120,7 @@ int CalcTextWidth (char *Text){
         }
         break;
       case 162:  //ق
-        if(haalat == 1 || haalat == 3)
+        if(stat == 1 || stat == 3)
         {
           cursor_x -= 5;
         }
@@ -1120,7 +1130,7 @@ int CalcTextWidth (char *Text){
         }
         break;
       case 201:  //ک
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           cursor_x -= 6;
         }
         else
@@ -1129,7 +1139,7 @@ int CalcTextWidth (char *Text){
         }
         break;
       case 144:  //گ
-        if(haalat == 1 || haalat == 3)
+        if(stat == 1 || stat == 3)
         {
           cursor_x -= 6;
         }
@@ -1139,7 +1149,7 @@ int CalcTextWidth (char *Text){
         }
         break;
       case 164:  //ل
-        if(haalat == 1 || haalat == 3)
+        if(stat == 1 || stat == 3)
         {
           cursor_x -= 2;
         }
@@ -1149,7 +1159,7 @@ int CalcTextWidth (char *Text){
         }
         break;
       case 165:  //م
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           cursor_x -= 6;
         }
         else
@@ -1158,7 +1168,7 @@ int CalcTextWidth (char *Text){
         }
         break;
       case 228:  //ن
-        if(haalat == 1 || haalat == 3){
+        if(stat == 1 || stat == 3){
           cursor_x -= 3;
         }
         else
@@ -1170,15 +1180,15 @@ int CalcTextWidth (char *Text){
         cursor_x -= 5;
         break;
       case 167:  //ه
-        if(haalat == 0)
+        if(stat == 0)
         {
           cursor_x -= 6;
         }
-        else if(haalat == 1)
+        else if(stat == 1)
         {
           cursor_x -= 6;
         }
-        else if(haalat == 2)
+        else if(stat == 2)
         {
           cursor_x -= 5;
         }
@@ -1188,11 +1198,11 @@ int CalcTextWidth (char *Text){
         }
         break;
       case 172:  //ی
-        if(haalat == 1 || haalat == 3)
+        if(stat == 1 || stat == 3)
         {
           cursor_x -= 3;
         }
-        else if(haalat == 2)
+        else if(stat == 2)
         {
           cursor_x -= 8;
         }
