@@ -320,14 +320,20 @@ void PutCharPE(char *Text, int x, int y, int dis, uint16_t color){
     }
         
     int isunk = 0; 
+    /*
+	Final: at the end of the word
+	Medial: at the middle of the word
+	Initial: at the beginning of the word
+	Isolated: the character alone (not part of a word).
+    */
     if (isFromTheSet1(qloghat))
       if (isFromTheSet2(bloghat))
         stat = 0;  //Isolated
       else
-        stat = 1;  //Final
+        stat = 1;  //Initial
     else
       if (isFromTheSet2(bloghat))
-        stat = 2;  //Initial
+        stat = 2;  //Final
       else
         stat = 3;  //Medial
   
@@ -866,10 +872,10 @@ int CalcTextWidth (char *Text){
       if (isFromTheSet2(bloghat))
         stat = 0;  //Isolated
       else
-        stat = 1;  //Final
+        stat = 1;  //Initial
     else
       if (isFromTheSet2(bloghat))
-        stat = 2;  //Initial
+        stat = 2;  //Final
       else
         stat = 3;  //Medial
   
