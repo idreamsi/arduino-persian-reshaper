@@ -10,9 +10,9 @@
 //This section should be modified according to your display type and library
 #define setpixel(x, y, color)           display.writePixel(x, y, color)
 #define LCDWidth                        display.width()
-#define ALINE_CENTER(t)	                (LCDWidth - ((LCDWidth - (LCDWidth - CalcTextWidth(t))) / 2)) - 2
-#define ALINE_RIGHT                     LCDWidth
-#define ALINE_LEFT(t)                   LCDWidth - CalcTextWidth(t)
+#define ALIGN_CENTER(t)	                (LCDWidth - ((LCDWidth - (LCDWidth - CalcTextWidth(t))) / 2)) - 2
+#define ALIGN_RIGHT                     LCDWidth
+#define ALIGN_LEFT(t)                   LCDWidth - CalcTextWidth(t)
 
 //If you use SPI display, change the following lines according to your display type (I used the Arduboy)
 #define OLED_DC                         4
@@ -137,16 +137,16 @@ void setup()   {
   //
   
   char txt[] = "فارسی نویسی در آردوینو";
-  PutCharPE(txt,ALINE_CENTER(txt),8,1,BLACK);
+  PutCharPE(txt,ALIGN_CENTER(txt),8,1,BLACK);
 
   char txt1[] = "کاری از :";
-  PutCharPE(txt1,ALINE_RIGHT-4,28,1,WHITE);
+  PutCharPE(txt1,ALIGN_RIGHT-4,28,1,WHITE);
 
   char txt2[] = "صدرالدین رستگار";
-  PutCharPE(txt2,ALINE_LEFT(txt2)+2,38,1,WHITE);
+  PutCharPE(txt2,ALIGN_LEFT(txt2)+2,38,1,WHITE);
 
   char txt3[] = "رامین سنگسری";
-  PutCharPE(txt3,ALINE_LEFT(txt3)+3,50,1,WHITE);
+  PutCharPE(txt3,ALIGN_LEFT(txt3)+3,50,1,WHITE);
   */
   
   //Draw round rectangles
@@ -155,10 +155,10 @@ void setup()   {
   //
   
   char txt[] = "فارسی نویسی در آردوینو";
-  PutCharPE(txt,ALINE_CENTER(txt),8,1,BLACK);
+  PutCharPE(txt,ALIGN_CENTER(txt),8,1,BLACK);
 
   char NUM[] = "0123456789";   //For correct representation, the numbers must be reversed.
-  PutCharPE(strreverse(NUM),ALINE_CENTER(NUM),30,1,BLACK);
+  PutCharPE(strreverse(NUM),ALIGN_CENTER(NUM),30,1,BLACK);
   
   //To make them visible on the display hardware!
   display.display();
