@@ -18,9 +18,9 @@ MicroOLED oled(PIN_RESET, DC_JUMPER); // Example I2C declaration
 
 #define setpixel(x, y, color)           oled.pixel(x, y, color, NORM)
 #define LCDWidth                        oled.getLCDWidth()
-#define ALINE_CENTER(t)                 (LCDWidth - ((LCDWidth - (LCDWidth - CalcTextWidth(t))) / 2)) - 2
-#define ALINE_RIGHT                     LCDWidth
-#define ALINE_LEFT(t)                   LCDWidth - CalcTextWidth(t)
+#define ALIGN_CENTER(t)                 (LCDWidth - ((LCDWidth - (LCDWidth - CalcTextWidth(t))) / 2)) - 2
+#define ALIGN_RIGHT                     LCDWidth
+#define ALIGN_LEFT(t)                   LCDWidth - CalcTextWidth(t)
 
 //Persian Letters 8x8
 const unsigned char PeChar[71][8] PROGMEM = {
@@ -119,10 +119,10 @@ void setup()   {
   oled.rect(0,0,oled.getLCDWidth(),oled.getLCDHeight(),WHITE,NORM);
     
   char txt[] = "آی دریمز";
-  PutCharPE(txt,ALINE_CENTER(txt),8,1,WHITE);
+  PutCharPE(txt,ALIGN_CENTER(txt),8,1,WHITE);
   
   char txt2[] = "فارسی نویسی";
-  PutCharPE(txt2,ALINE_CENTER(txt2),26,1,WHITE);
+  PutCharPE(txt2,ALIGN_CENTER(txt2),26,1,WHITE);
   
   //To make them visible on the display hardware!
   oled.display();
