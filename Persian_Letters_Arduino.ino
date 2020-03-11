@@ -31,7 +31,8 @@ Adafruit_SSD1306 display(OLED_RESET);
 #endif
 
 
-//Persian Letters 8x8
+//8x8 Persian Letters
+//This is the font definition. You can use http://gurgleapps.com/tools/matrix to create your own font.
 const unsigned char PeChar[71][8] PROGMEM = {
 	0x00, 0x1C, 0x20, 0x08, 0x08, 0x08, 0x08, 0x00, //0	alef1
 	0x00, 0x01, 0x01, 0x01, 0x01, 0x01, 0x00, 0x00, //1	alef2 
