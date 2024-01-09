@@ -16,7 +16,7 @@ See more screenshots [here](https://github.com/idreamsi/arduino-persian-reshaper
 ![Persian Letters on Arduboy](https://raw.githubusercontent.com/idreamsi/arduino-persian-reshaper/master/screenshot/arduboy.jpg)
 
 ## Online simulation on ESP32
-
+![Online simulation on ESP32 with wokwi.com](https://raw.githubusercontent.com/idreamsi/arduino-persian-reshaper/master/screenshot/wokwi.PNG)
 
 ## Prerequisites
 First you need to install the [Adafruit GFX library](https://github.com/adafruit/Adafruit-GFX-Library) (for drawing shapes, lines, ...) of course this is optional, then according to the type of display, install the library you need. Here I used the [128x64 display with SSD1306](https://www.adafruit.com/product/326) chip driver so I installed the [Adafruit SSD1306](https://github.com/adafruit/Adafruit_SSD1306) library.
