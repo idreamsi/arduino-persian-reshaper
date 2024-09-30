@@ -60,5 +60,5 @@ Copyright (C) 2018 [Sadraldin Rastegar](mailto:s_qwerty13@live.com) and [Ramin S
 ## Donation
 If this project help you reduce time to develop, you can give me a cup of coffee :)
 
-- Donate via Bitcoin: 17FjznvUNk8G9UPKsvpVCq9U7z4iDtXVBE
+- Donate via Bitcoin: UQDpI3G-KrhrFo0uv2QXyE95u2QFITyMu8nUvrkjv518EO8t
 - [Donate via IDPay](https://idpay.ir/idreams)
